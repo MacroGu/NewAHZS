@@ -19,8 +19,3 @@ echo "run servers "
 
 start .\cwmd.exe .\cfg.ini
 start .\loginapp.exe .\cfg.ini 1 .\log\loginlog_1
-start .\dbmgr.exe .\cfg.ini 3 .\log\dblog_3
-start .\timerd.exe .\cfg.ini 4 .\log\timerd_4
-start .\logapp.exe .\cfg.ini 5 .\log\logapplog_5
-start .\baseapp.exe .\cfg.ini 6 .\log\baselog_6
-start .\cellapp.exe .\cfg.ini 7 .\log\celllog_7

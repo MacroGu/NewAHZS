@@ -33,3 +33,5 @@
 
 build
 /conf/serverinfo.xml
+.keep
+/run_bin/log/*

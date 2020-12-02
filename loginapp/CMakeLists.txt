@@ -4,19 +4,7 @@ project(loginapp)
 include_directories(./ ../common ../include ../wepoll/include ../cellapp ../baseapp ../lua)
 link_directories(../libs/mysql ../libs/linux)
 
-# Target
-add_executable (loginapp
-	loginapp.cpp
-	loginapp.h
-	world_login.cpp
-	world_login.h
-	main.cpp
-	../baseapp/entity_base.cpp
-	../baseapp/entity_base.h
-	../baseapp/lua_base.cpp
-	../baseapp/lua_base.h
-	../baseapp/world_base.cpp
-	../baseapp/world_base.h
+FILE(GLOB CELLAPP_FILES 
 	../cellapp/entity_cell.cpp
 	../cellapp/entity_cell.h
 	../cellapp/aoi.cpp
@@ -26,7 +14,30 @@ add_executable (loginapp
 	../cellapp/space.cpp
 	../cellapp/space.h
 	../cellapp/world_cell.cpp
-	../cellapp/world_cell.h
+	../cellapp/world_cell.h	
+)
+source_group(cellapp FILES ${CELLAPP_FILES} )
+
+FILE(GLOB BASEAPP_FILES 
+	../baseapp/entity_base.cpp
+	../baseapp/entity_base.h
+	../baseapp/lua_base.cpp
+	../baseapp/lua_base.h
+	../baseapp/world_base.cpp
+	../baseapp/world_base.h	
+)
+source_group(baseapp FILES ${BASEAPP_FILES} )
+
+source_group(loginapp FILES ${LOGINAPP_FILES} )
+
+FILE(GLOB SOURCE_FILES "./*.cpp" "./*.h")
+source_group(src FILES ${SOURCE_FILES} )
+
+# Target
+add_executable (loginapp
+	${CELLAPP_FILES}
+	${BASEAPP_FILES}
+	${SOURCE_FILES}
 )
 
 if(MSVC)
